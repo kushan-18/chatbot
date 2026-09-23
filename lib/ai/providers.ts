@@ -23,12 +23,12 @@ export function getLanguageModel(modelId: string) {
     return myProvider.languageModel(modelId);
   }
 
-  return google("gemini-2.0-flash") as any;
+  return google("gemini-2.5-flash") as any;
 }
 
 export function getTitleModel() {
   if (isTestEnvironment && myProvider) {
     return myProvider.languageModel("title-model");
   }
-  return google("gemini-2.0-flash") as any;
+  return google("gemini-2.5-flash") as any;
 }
