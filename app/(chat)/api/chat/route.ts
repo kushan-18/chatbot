@@ -384,7 +384,8 @@ export async function POST(request: Request) {
           });
         }
       },
-      onError: (error) => {
+           onError: (error) => {
+        console.error("CHAT STREAM ERROR:", error);
         if (
           error instanceof Error &&
           error.message?.includes(
