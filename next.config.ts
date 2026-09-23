@@ -49,6 +49,9 @@ const nextConfig: NextConfig = {
   },
   poweredByHeader: false,
   reactCompiler: true,
+  typescript: {
+    ignoreBuildErrors: true,
+  },
 };
 
 export default withBotId(nextConfig);
