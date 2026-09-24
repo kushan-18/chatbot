@@ -287,7 +287,8 @@ export async function POST(request: Request) {
           onEnd() {
             stopWaitingStatus();
           },
-          onError() {
+          onError(event) {
+            console.error("STREAMTEXT ERROR:", event);
             stopWaitingStatus();
           },
           providerOptions: {
@@ -384,7 +385,7 @@ export async function POST(request: Request) {
           });
         }
       },
-           onError: (error) => {
+      onError: (error) => {
         console.error("CHAT STREAM ERROR:", error);
         if (
           error instanceof Error &&
