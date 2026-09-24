@@ -3,6 +3,8 @@ import { google } from "@ai-sdk/google";
 import { isTestEnvironment } from "../constants";
 import { titleModel } from "./models";
 
+const GEMINI_MODEL = "gemini-3.6-flash";
+
 export const myProvider = isTestEnvironment
   ? (() => {
       const {
@@ -23,12 +25,12 @@ export function getLanguageModel(modelId: string) {
     return myProvider.languageModel(modelId);
   }
 
-  return google("gemini-2.5-flash") as any;
+  return google(GEMINI_MODEL) as any;
 }
 
 export function getTitleModel() {
   if (isTestEnvironment && myProvider) {
     return myProvider.languageModel("title-model");
   }
-  return google("gemini-2.5-flash") as any;
+  return google(GEMINI_MODEL) as any;
 }
