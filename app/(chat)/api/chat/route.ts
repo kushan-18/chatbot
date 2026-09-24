@@ -327,6 +327,10 @@ export async function POST(request: Request) {
 
         dataStream.merge(
           toUIMessageStream({
+            onError: (error: unknown) => {
+              console.error("UISTREAM REAL ERROR:", error);
+              return error instanceof Error ? error.message : String(error);
+            },
             sendReasoning: isReasoningModel,
             stream: result.stream,
           })
