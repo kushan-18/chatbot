@@ -22,10 +22,14 @@ export async function proxy(request: NextRequest) {
   const base = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
   if (!token) {
+    if (pathname === "/login" || pathname === "/register") {
+      return NextResponse.next();
+    }
+
     const redirectUrl = encodeURIComponent(new URL(request.url).pathname);
 
     return NextResponse.redirect(
-      new URL(`${base}/api/auth/guest?redirectUrl=${redirectUrl}`, request.url)
+      new URL(`${base}/login?redirectUrl=${redirectUrl}`, request.url)
     );
   }
 
