@@ -5,7 +5,7 @@ export const titleModel = {
   gatewayOrder: ["fireworks", "bedrock"],
   id: "moonshotai/kimi-k2.5",
   name: "Spark AI",
-  provider: "spark",
+  provider: "moonshotai",
 };
 
 export type ModelCapabilities = {
@@ -29,7 +29,7 @@ export const chatModels: ChatModel[] = [
     gatewayOrder: ["fireworks", "bedrock"],
     id: "moonshotai/kimi-k2.5",
     name: "Spark AI",
-    provider: "spark",
+    provider: "moonshotai",
   },
 ];
 
